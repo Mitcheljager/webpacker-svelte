@@ -14,10 +14,9 @@ module Webpacker
       def render(props = {}, options = {}, &block)
         tag = options.delete(:tag) || :div
         data = { data: { "svelte-component" => @name, "svelte-props" => props.to_json } }
+        content = block.call if block_given?
 
-        content_tag(tag, options.deep_merge(data)) do
-          block.call if block_given?
-        end
+        content_tag(tag, content, options.deep_merge(data))
       end
     end
   end
