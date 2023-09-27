@@ -12,7 +12,6 @@ module Webpacker
       end
 
       def render(props = {}, options = {}, &block)
-        abort "==============".inspect
         tag = options.delete(:tag) || :div
         data = { data: { "svelte-component" => @name, "svelte-props" => props.to_json } }
         content = block.call if block_given?
