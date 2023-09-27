@@ -14,7 +14,9 @@ module Webpacker
         tag = options.delete(:tag) || :div
         data = { data: { "svelte-component" => @name, "svelte-props" => props.to_json } }
 
-        content_tag(tag, nil, options.deep_merge(data))
+        content_tag(tag, nil, options.deep_merge(data)) do
+          yield
+        end
       end
     end
   end
