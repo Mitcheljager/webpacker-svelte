@@ -47,6 +47,7 @@ const WebpackerSvelte = {
       const component = registeredComponents[className]
 
       if (component) {
+        node.innerHTML = ""
         if (node.innerHTML.length === 0) this.render(node, component)
       } else {
         console.error(
