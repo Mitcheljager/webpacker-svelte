@@ -12,9 +12,10 @@ module Webpacker
       end
 
       def render(props = {}, options = {}, &block)
+        abort "==============".inspect
         tag = options.delete(:tag) || :div
         data = { data: { "svelte-component" => @name, "svelte-props" => props.to_json } }
-        content = ::ActionView::Base.capture(&block) if block_given?
+        content = block.call if block_given?
 
         content_tag(tag, content, options.deep_merge(data))
       end
