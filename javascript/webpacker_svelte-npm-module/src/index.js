@@ -46,6 +46,8 @@ const WebpackerSvelte = {
       const className = node.getAttribute(CLASS_ATTRIBUTE_NAME)
       const component = registeredComponents[className]
 
+      console.log(node)
+
       if (component) {
         node.innerHTML = ""
         if (node.innerHTML.length === 0) this.render(node, component)
