@@ -41,6 +41,8 @@ const WebpackerSvelte = {
     const { registeredComponents } = this
     const toMount = document.querySelectorAll(`[${CLASS_ATTRIBUTE_NAME}]`)
 
+    console.error("Mount components", toMount)
+
     for (let i = 0; i < toMount.length; i += 1) {
       const node = toMount[i]
       const className = node.getAttribute(CLASS_ATTRIBUTE_NAME)
